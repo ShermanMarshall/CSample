@@ -1068,9 +1068,9 @@ void ExitProgram (residentInfo*&headResident)
                                 while (headResident !=NULL)
                                 {
                                       inputFile << headResident->ssn << " " 
-                                                << headResident->lastName
+                                                << headResident->lastName << " "
                                                 << headResident->phoneNum << " "
-                                                << headResident->phoneType;
+                                                << headResident->phoneType << "\n";
                                       headResident = headResident->nextResident;
                                       }//End while.
                                 break;
