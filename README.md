@@ -14,11 +14,13 @@ file IO, basic data-structures (independent of the c++ standard library classes)
 
 The following files are included:
 
-bezierCurve.c/h      -- C files for creating a bezier curve of optional order, and storing the resulting curve components (x, y, and z) in an array of type float, based on the number of segments chosen.
+bezierCurve.c/h      -- C files for creating a bezier curve of optional order, and storing the resulting curve components (points made up of x, y, and z) in an array of type float, based on the number of segments chosen.
+
+sphere.c/h           -- C files for creating a sphere of varying precision (modifying the theta parameter will cause the sphere to have more/less triangles utilized, resulting in a more/less precise representation.
 
 crcProgram.cpp       -- A Regis U. homework assignment for a networking course to imitate the crc performed on TCP and IP header contents
 
-doubleLinkedList.cpp -- A Regis U. homework assignment for a data-structures course to gain experience building linked-lists. Two text files accompany (doubleIn/doubleFind.txt), and passed as command line arguments. The program reads doubleIn, and attempts to match the integers stored within with those present in doubleFind.
+doubleLinkedList.cpp -- A Regis U. homework assignment for a data-structures course to gain experience building linked-lists. Two text files accompany (doubleIn/doubleFind.txt), and are passed in as command line arguments. The program reads doubleIn.txt, and attempts to match the integers stored within with those present in doubleFind.txt.
 
 networkSimulator.cpp -- A Regis U. homework assignment for a networking course to simulate network traffic according to a given finite-state machine.
 
