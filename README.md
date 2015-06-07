@@ -16,7 +16,7 @@ The following files are included:
 
 bezierCurve.c/h      -- C files for creating a bezier curve of optional order, and storing the resulting curve components (points made up of x, y, and z) in an array of type float, based on the number of segments chosen.
 
-sphere.c/h           -- C files for creating a sphere of varying precision (modifying the theta parameter will cause the sphere to have more/less triangles utilized, resulting in a more/less precise representation.
+sphere.c/h           -- C files for creating a sphere of varying precision (modifying the theta parameter will cause the sphere to have more/less triangles utilized, resulting in a more/less precise representation).
 
 crcProgram.cpp       -- A Regis U. homework assignment for a networking course to imitate the crc performed on TCP and IP header contents
 
