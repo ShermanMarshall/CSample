@@ -68,7 +68,7 @@ float* makeBezierBasis (float coords[], int order) {
 	return geometryBasis;
 }
 
-float coefficient (int n, int i) {
+int coefficient (int n, int i) {
 	int iterations; float num, denom;
 	num = denom = 1; iterations = n - i;
 
