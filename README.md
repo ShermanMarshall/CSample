@@ -25,3 +25,5 @@ doubleLinkedList.cpp -- A Regis U. homework assignment for a data-structures cou
 networkSimulator.cpp -- A Regis U. homework assignment for a networking course to simulate network traffic according to a given finite-state machine.
 
 residentInfo.cpp     -- A Regis U. homework assignment for a data-structures course. The user is prompted for a filename, which will be used to populate a list of residents per the program's schema. The user then may select from a menu of options: add, remove, exit, and match--which reads a pre-defined file, and matches goods to a user in the list. The user maintains an option on exit to update a file of their choice.
+
+binaryTree.cpp       -- A Regis U. homework assignment for a data-structures course. The user is prompted for a filename (testData.txt is included for testing), used to supply integer values for nodes making up a binary tree. Once loaded, the user may add, delete, and display sub-sections of the tree per an iterative looping command prompt. 
