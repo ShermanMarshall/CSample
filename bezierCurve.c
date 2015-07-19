@@ -1,9 +1,5 @@
 #include "bezierCurve.h"
 
-int numArrayItems(int order, int segments) {
-    return 3 * segments;
-}
-
 void makeBezierCurve (int order, float curve[], int segments, float xCoords[],	float yCoords[], float zCoords[]) {
 
 	float* xBasis = makeBezierBasis(xCoords, order);
