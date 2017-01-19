@@ -1,79 +1,30 @@
 #include "bezierCurve.h"
 
-void makeBezierCurve (int order, float curve[], int segments, float xCoords[],	float yCoords[], float zCoords[]) {
-
-	float* xBasis = makeBezierBasis(xCoords, order);
-	float* yBasis = makeBezierBasis(yCoords, order);
-	float* zBasis = makeBezierBasis(zCoords, order);
-
-	int index = 0;
-
-	curve[index++] = xCoords[0];
-	curve[index++] = yCoords[0];
-   	curve[index++] = zCoords[0];
-    
-    for (float x = 1; x < (segments - 1); x++, index+=3) {
-        float t = 1; curve[index] = curve[index + 1] = curve[index + 2] = 0.0f;
-        
-        for (int y = 0; y <= order; y++) {
-            for (int z = 0; z < y; z++)
-                t *= x/segments;
-            
-            curve[index] += t * xBasis[y];
-            curve[index + 1] += t * yBasis[y];
-            curve[index + 2] += t * zBasis[y];
-        }
-        
+void makeCubicBezier(float curve[], int segments, float xCoords[], float yCoords[], float zCoords[]) {
+    float t = 0;
+    for (int x = 0; t < segments; ) {
+        curve[x++] = sumPoint(t/((float) segments), xCoords);
+        curve[x++] = sumPoint(t/((float) segments), yCoords);
+        curve[x++] = sumPoint(t/((float) segments), zCoords);
+        t++;
     }
-    
-    curve[index++] = xCoords[order];
-    curve[index++] = yCoords[order];
-    curve[index] = zCoords[order];
 }
 
-float* makeBezierBasis (float coords[], int order) {
-	int a = order; 
-	
-    	float* geometryBasis= malloc(sizeof(float)*(order+1)); //new float[order+1];
-    
-	float mat[a+1][a+1]; int n = a;
-
-	for (int x = 0; x <= n; x++) {
-                float coeff = coefficient(n, x); int order = n - x;
-
-                for (int y = 0; y <= n; y++) {
-                        if (y <= order) {
-                                mat[y][x] = coeff * coefficient(order, y);
-
-                                if ((order - y) % 2)
-                                        mat[y][x] *= -1;
-                        } else {
-                                mat[y][x] = 0;
-                        }
-                }
+float sumPoint(float t, float coords[]) {
+    float base = 1 - t, sum = 0.0f;
+    for (int x = 0; x < 4; x++) {
+        switch (x) {
+            case 0: sum += (base * base * base * coords[x]);
+                break;
+            case 1: sum += (base * base * 3 * t * coords[x]);
+                break;
+            case 2: sum += (base * 3 * t * t * coords[x]);
+                break;
+            case 3: sum += (t * t * t * coords[x]);
+                break;
+            default: break;
         }
-	
-	for (int x = 0; x <= a; x++) {
-		geometryBasis[x] = 0;
-
-		for (int y = 0; y <= a; y++) {
-			geometryBasis[x] += mat[y][x] * coords[y];
-		}
-	}
-    
-	return geometryBasis;
-}
-
-int coefficient (int n, int i) {
-	int iterations; float num, denom;
-	num = denom = 1; iterations = n - i;
-
-	for (int x = n, y = 0; y < iterations; x--, y++) 
-		num *= x;
-	
-	for (int x = iterations; x > 1; x--)
-		denom *= x;
-	
-	return num/denom;
+    }
+    return sum;
 }
 
