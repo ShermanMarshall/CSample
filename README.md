@@ -7,7 +7,7 @@ The majority was undertaken in the form of homework assignments for lower divisi
 study in Computer Science at Regis University; essentially, control and data structures, and 
 modular programming. Note: all Regis University assignments were completed on a Windows machine, and 
 consequently utilize the Windows system commands (pause, cls, etc), which will cause warnings on
-UNIX machines.
+UNIX machines. Also, amazingly, none required the use of strcpy, and the terrible horror that is string concatenation in C. *Shudders*
 
 It is intended to present a basic understanding of: memory management, type casting and definitions,
 file IO, basic data-structures (independent of the c++ standard library classes).
